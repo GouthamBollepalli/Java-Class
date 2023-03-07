@@ -1,17 +1,21 @@
+package org.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.reactive.function.server.RouterFunction;
+
+@SpringBootApplication
 public class Main {
-//Constructor
-    int x;
-    public Main(){
-        x = 10;
-    }
 
     public static void main(String[] args) {
-        Main NewNumber  = new Main();
-        System.out.println(NewNumber.x);
+        SpringApplication.run(Main.class, args);
     }
 
+    @Bean
+    public RouterFunction<?> routes(Welcome welcome, Greet greet) {
+        return welcome.routes()
+            .and(greet.routes());
+    }
 }
-
-
-
 
