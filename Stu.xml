@@ -1,0 +1,36 @@
+<propert>
+    <beans
+            xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+        <bean id="Student" class="com.Student.org.Student">
+            <property name="student">
+                <ref bean="class" />
+            </property>
+        </bean>
+
+        <bean id="class" class="com.Student.org.impl.class" />
+        <bean id="JsonStudent" class="com.Student.org.impl.JsonStudent" />
+
+
+    </beans>
+
+    <beans
+            xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+        <bean id="Student" class="com.Student.org.Student">
+            <constructor-arg>
+                <bean class="com.Student.org.impl.Student" />
+            </constructor-arg>
+        </bean>
+
+        <bean id="class" class="com.Student.org.impl.class" />
+        <bean id="JsonStudent" class="com.Student.org.impl.JsonStudent" />
+
+    </beans>
+</propert>
